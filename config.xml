@@ -10,7 +10,6 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-  <icon src="icon.png"/>
   <platform name="android">
        
     </platform>
@@ -26,8 +25,5 @@
     
     <plugin name="cordova-plugin-dialogs" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
-    <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
-        <string>need location access to find things nearby</string>
-    </edit-config>
     <preference name="phonegap-version" value="cli-7.0.1" />
 </widget>
