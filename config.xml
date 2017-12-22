@@ -3,7 +3,7 @@
   <description>Complete Rent-Alls</description>
   <author href="http://www.intellicomstudios.net" email="info@intellicomstudios.net">Robin Ozolins</author>
   <content src="index.html" />
-    <access origin="http://www.completerentalls.ca/" />
+    <access origin="http://www.completerentalls.ca" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
