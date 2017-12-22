@@ -1,1 +1,212 @@
-index.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=medium-dpi, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Your app title -->
+    <title>Complete Rent-Alls</title>
+    <!-- Path to Framework7 iOS CSS theme styles-->
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <!-- Path to Framework7 iOS related color styles -->
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" type="text/css" href="css/MyFontsWebfontsKit.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/my-app.css">
+  </head>
+  <body>
+      
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div id="wrapCatMenuAll" class="wrapCatMenuAll">
+            <ul class="relative" data-target="catmenu">
+
+            </ul>
+        </div>
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <div id="superTransitionEffect" class="superTransitionEffect abs"></div>
+      <!-- Your main view, should have "view-main" class -->
+      
+      <div class="view view-main">
+        
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, "data-page" contains page name -->
+          
+                <!-- Scrollable page content -->
+                
+                  <!--------------------------->
+                <!--   TEMPLATES SECTION  --->
+                <!--------------------------->
+                <!-- Media List Template  -->
+                
+                <script id="homePageTemplate" type="text/template7">
+                    <div data-page="index" class="page">
+                        <div class="overlayBlue">
+                            <!-- Begin Wrap Top -->
+                            <div id="topHeader" class="topHeader abs heightExactly44 bg-white">
+                                <div class="wrapSearchIndicator abs text-gray"><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></div>
+                                <div class="wrapMenuIndicator abs">
+                                    <a class="relative open-panel" href="#">
+                                        <span class="relative"></span>
+                                        <span class="relative"></span>
+                                        <span class="relative"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End Wrap Top -->
+                            <!-- Begin Wrap Middle Content -->
+                            <div class="page-content">
+                                <!-- Begin Wrap Top Image Background With Logo -->
+                                <div id="wrapBgWithLogo" class="wrapBgWithLogo">
+                                    <div id="logo" class="logo abs top50 fullwidth text-center">
+                                    <img class="text-center" src="images/CRHomeLogo.png" alt="Complete Rent-Alls" />
+                                    <div class="text-center text-white-transparent padd20 small">See what we’ve been up to... <i class="fa fa-chevron-circle-left fa-flip-horizontal" aria-hidden="true"></i></div>
+                                    </div>
+                                </div>
+                                <!-- End Wrap Top Image Background With Logo -->
+                                <!-- Begin Wrap 9 Blocks -->
+                                <div id="wrapWelcomeBlocks" class="wrapWelcomeBlocks grid1">
+                                    <div class="row">
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/CR_tent_icon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Tents</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/ChairsIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Chairs</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/LinensIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Linens</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/CutleryIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Cutlery</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/DinnerwearIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Dinnerwear</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/StemwearIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Stemwear</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/GlasswearIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Glasswear</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/TablesIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Tables</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/GamesIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Games</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/FurnitureIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Furniture</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/CookingIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Cooking</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                        <div class="col-33">
+                                            <item class="text-center">
+                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/ToolsIcon.png');">
+                                                    <div class="h3 abs bottom0 padd10 text-center fullwidth">Tools</div>
+                                                </a>
+                                            </item>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Wrap 9 Blocks -->
+                                <!-- Begin Wrap Bottom Map -->
+                                <div id="wrapBottomMap" class="wrapBottomMap bg-bluegray padd20">
+                                    <div class="flexbox">
+                                        <div class="icon"><img src="images/CRMapIcon.png" alt="" /></div>
+                                        <div class="flex1">
+                                        <div class="text-bluegray-dark small lineheight120">
+            <strong>Visit our showroom or<br />
+            contact us via phone or email,<br />
+            we’re here to help!</strong>
+        </div>
+                                        <div class="text-bluegray-dark text-middle" data-target="wrapstorecontactinfo"></div>
+    </div>
+                                    </div>
+                                </div>
+                                <!-- End Wrap Bottom Map -->
+                                <!-- Begin Wrap Bottom Working Hours -->
+                                <div data-target="wrapstorecontacthours" id="wrapBottomWorkingHours" class="wrapBottomWorkingHours bg-bluegray-middle text-bluegray-dark small padd10 text-center">
+                                
+                                </div>
+                                <!-- End Wrap Bottom Working Hours -->
+                            </div>
+                            <!-- End Wrap Middle Content -->
+                        </div>
+                    </div>
+                </script>
+                
+                <script id="welcomeTemplate" type="text/template7">
+                    <div data-page="index" class="page">
+                        <div class="overlayBlue">
+                            
+                        </div>
+                    </div>
+                </script>
+                
+        </div>
+      </div>
+    </div>
+      
+      <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+</html>

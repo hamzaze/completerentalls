@@ -1,0 +1,33 @@
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="ca.completerentalls.app" version="1.0.0">
+  <name>Complete Rent-Alls</name>
+  <description>Complete Rent-Alls</description>
+  <author href="http://www.intellicomstudios.net" email="info@intellicomstudios.net">Robin Ozolins</author>
+  <content src="index.html" />
+    <access origin="http://www.completerentalls.ca/" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+  <icon src="icon.png"/>
+  <platform name="android">
+       
+    </platform>
+     <platform name="ios">
+        
+    </platform>
+    
+    <preference name="orienation" value="portrait" />
+    <preference name="permissions" value="none" />
+    <preference name="target-device" value="handset" />
+    <preference name="deployment-target" value="8.0" />
+    <preference name="DisallowOverscroll" value="true"/>
+    
+    <plugin name="cordova-plugin-dialogs" />
+    <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
+    <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+        <string>need location access to find things nearby</string>
+    </edit-config>
+    <preference name="phonegap-version" value="cli-7.0.1" />
+</widget>
