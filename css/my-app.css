@@ -346,6 +346,11 @@ div.errMessage1 .closeOverlay.abs a.relative{
     padding-bottom: 10px;
 }
 
+.paddLeftRight20{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .bg-white{
     background-color: #fff;
 }
@@ -471,9 +476,34 @@ div.errMessage1 .closeOverlay.abs a.relative{
     margin: 0 10px 0 0;
 }
 
+.page{
+     -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition-duration: .4s;
+    transition-duration: .4s;
+}
+
+.page.catmenuactivated{
+    -webkit-transform: translate3d(260px,0,0);
+    transform: translate3d(260px,0,0);
+    -webkit-transition-duration: .4s;
+    transition-duration: .4s;
+}
+
 .wrapCatMenuAll{
     font-size: 85%;
     background-color: #356584;
+    width: 260px;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    overflow: auto;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition-duration: .4s;
+    transition-duration: .4s;
 }
 
 .wrapCatMenuAll ul.relative > li.relative > a.relative{

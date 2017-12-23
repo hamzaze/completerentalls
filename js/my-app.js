@@ -38,6 +38,11 @@ var mainView = myApp.addView('.view-main', {
   dynamicNavbar: true
 });
 
+var leftView = myApp.addView('.view-main', {
+  // Because we want to use dynamic navbar, we need to enable it for this view:
+  dynamicNavbar: true
+});
+
 var isAjaxLoaded=false;
 var pathToAjaxDispatcher="http://www.completerentalls.ca/beta/php/ajaxDispatcher1.php";
 var ajaxLoader="<div class='ajaxLoader left50 top50 abs'><div class='fineloader'></div></div>";
@@ -66,20 +71,6 @@ if(!checkCookie("hhCompleteRentalsLoadedApp")){
             reload: false,
             context: data
         });
-    }
-}
-
-if(!checkCookie("hhCompleteRentalsCategoryMenuTemplate")){
-    
-    var postData={context: "categoryMenuTemplate"};
-    callAjaxOnFly(postData);
-}else{
-    if(localStorage.getItem('categoryMenuTemplate')===null){
-        
-        
-    }else{
-        var data=JSON.parse(localStorage.getItem('categoryMenuTemplate'));
-        
     }
 }
 
@@ -172,6 +163,12 @@ function displayInfo(a, b){
     });
 }
 
+$$(document).on("click", "a[data-action='togglecatmenu']", function(e){
+    e.preventDefault();
+    var $this=$$(this);
+    $$("div.page.page-on-center").toggleClass("catmenuactivated");
+});
+
 function callAjaxOnFly(postData){
     $$.ajax({
         type: "POST",
@@ -186,49 +183,14 @@ function callAjaxOnFly(postData){
                         localStorage.setItem('welcomeTemplate', JSON.stringify(data));
                         var data=JSON.parse(localStorage.getItem('welcomeTemplate'));
                         var currentPage=mainView.activePage.name;
-                        if(data["results"]["store"]["storeinfo"]){
-                            var store=data["results"]["store"]["storeinfo"];
-                            var storeHTML="";
-                            var storeHTML1="";
-                            
-                            storeHTML1 +="<div class='row'>";
-                            if(store["storehoursmobile1"]!=""){
-                                storeHTML1 +="<div class='col-50'>" + store["storehoursmobile1"] + "</div>";
-                            }
-                            if(store["storehoursmobile2"]!=""){
-                                storeHTML1 +="<div class='col-50'>" + store["storehoursmobile2"] + "</div>";
-                            }
-                            storeHTML1 +="</div>";
-                            
-                            storeHTML +="<div class='paddTopBottom10'>" + store["StoreAddress"] + "<br />" + store["StoreCity"] + ", " + store["StoreProv"] + "</div>";
-                            storeHTML +="<div class='wrapStoreLinks paddTopBottom5'>";
-                            if(store["StorePhone"]!=""){
-                                storeHTML +="<div class='inline-block'><a target='_blank' href='tel:"+store["StorePhone"]+"' class='external relative circle bg-green text-white'><div class='abs top50 fullwidth text-center'><i class='fa fa-phone fa-1-5x' aria-hidden='true'></i></div></a></div>";
-                            }
-                            if(store["gmap"]!=""){
-                                storeHTML +="<div class='inline-block'><a target='_blank' href='"+store["gmap"]+"' class='external relative circle bg-orange text-white'><div class='abs top50 fullwidth text-center'><i class='fa fa-map-marker fa-1-5x' aria-hidden='true'></i></div></a></div>";
-                            }
-                            if(store["StoreEmail"]!=""){
-                                storeHTML +="<div class='inline-block'><a target='_blank' href='mailto:"+store["StoreEmail"]+"' class='external relative circle bg-blue text-white'><div class='abs top50 fullwidth text-center'><i class='fa fa-envelope-o fa-1-5x' aria-hidden='true'></i></div></a></div>";
-                            }
-                            storeHTML +="</div>";
-                        $$("div.page.page-on-center div.page-content div[data-target='wrapstorecontactinfo']").html(storeHTML);
-                        $$("div.page.page-on-center div.page-content div[data-target='wrapstorecontacthours']").html(storeHTML1);
-                    }
                         
-                    break;
-                    case "categoryMenuTemplate":
-                        localStorage.setItem('categoryMenuTemplate', JSON.stringify(data));
-                        var data=JSON.parse(localStorage.getItem('categoryMenuTemplate'));
-                        if(data["results"]){
-                            var menuItems=data["results"];
-                            var menuHTML="";
-                            
-                            $$.each(menuItems, function (index, obj) {
-                                menuHTML +="<li class='relative'><a class='relative'>" + obj["SubCategory"] + "</a></li>";
-                            });
-                            $$("#wrapCatMenuAll [data-target='catmenu']").html(menuHTML);
-                        }
+                        mainView.router.load({
+                            template: Template7.templates.homePageTemplate,
+                            animatePages: false,
+                            reload: false,
+                            context: data
+                        });
+                        
                     break;
                 }
             }else{
