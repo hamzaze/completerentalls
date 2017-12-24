@@ -3,7 +3,14 @@
         <!-- Begin Wrap Top -->
         <div id="topHeader" class="topHeader abs heightExactly44 bg-white text-center">
             <div class="padd10 text-gray text-uppercase"><strong>{{SubCategory}}</strong></div>
-            <div class="wrapSearchIndicator abs text-gray"><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></div>
+            <div class="wrapSearchIndicator abs text-gray">
+                <div class="inline-block">
+                    <a href=""><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
+                </div>
+                <div class="inline-block">
+                    <a href=""><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></a>
+                </div>
+            </div>
             <div class="wrapMenuIndicator1 abs">
                 <a class="relative back" href="#">
                     <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
@@ -14,7 +21,7 @@
         <!-- Begin Wrap Middle Content -->
         <div class="page-content">
             
-            <div id="wrapAllProducts" class="wrapAllProducts" data-id="{{SubCategoryID}}"></div>
+            <div id="wrapAllProducts" class="wrapAllProducts list-block" data-id="{{SubCategoryID}}"></div>
         </div>
         <!-- End Wrap Middle Content -->
     </div>

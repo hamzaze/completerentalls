@@ -233,6 +233,15 @@ div.errMessage1{
     width: 100%;
 }
 
+.list-block {
+    margin: 0;
+    font-size: inherit;
+}
+
+.list-block ul:before, .list-block ul:after{
+    display: none;
+}
+
 body > div.errMessage1{
     position: fixed;
     left: 0;
@@ -371,7 +380,7 @@ div.errMessage1 .closeOverlay.abs a.relative{
     background-color: #fff;
 }
 
-.bg-green, a.bg-green{
+.bg-green, a.bg-green, .wrapAllProducts.list-block .swipeout-actions-right a.bg-green{
     background-color: #99cc66;
 }
 
@@ -389,6 +398,14 @@ div.errMessage1 .closeOverlay.abs a.relative{
 
 .bg-bluegray-middle{
     background-color: #b2c8cc;
+}
+
+.bg-darkblue, .list-block .swipeout-actions-right a.bg-darkblue{
+    background-color: #27446c;
+}
+
+.wrapAllProducts.list-block .first-swipeout{
+    padding: 0 25px;
 }
 
 .text-center{

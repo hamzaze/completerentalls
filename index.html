@@ -87,12 +87,12 @@
                             <!-- Begin Wrap Top -->
                             <div id="topHeader" class="topHeader abs heightExactly44 bg-white">
                                 <div class="wrapSearchIndicator abs text-gray">
-                                <div class="inline-block">
-                                    <a href=""><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
-                                </div>
-                                <div class="inline-block">
-                                    <a href=""><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></a>
-                                </div>
+                                    <div class="inline-block">
+                                        <a href=""><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="inline-block">
+                                        <a href=""><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></a>
+                                    </div>
                                 </div>
                                 <div class="wrapMenuIndicator abs">
                                     <a class="relative" href="#" data-action="togglecatmenu">
@@ -276,21 +276,31 @@
                         {{#if results}}
                             <div class="row">
                                 <div class="col-100">
+                                    <ul>
                                     {{#each results}}
-                                        <a class="loadContext" href="singleproduct.html" data-id="{{ProductID}}">
-                                            <div class="item">
-                                                <div class="flexbox">
-                                                    <div class="image-holder"><div class="bg-image-outer"></div></div>
-                                                    <div class="flex1">
-                                                        <div class="lineheight100">
-                                                            <h3 class="lineheight100">{{OnlineName}}</h3>
-                                                            <span class="small text-gray">{{Price}}</span>
+                                        <li class="swipeout" data-id="{{ProductID}}">
+                                            <div class="swipeout-content item-content">
+                                                <a class="loadContext" href="singleproduct.html" data-id="{{ProductID}}">
+                                                    <div class="item">
+                                                        <div class="flexbox">
+                                                            <div class="image-holder"><div class="bg-image-outer"></div></div>
+                                                            <div class="flex1">
+                                                                <div class="lineheight100">
+                                                                    <h3 class="lineheight100">{{OnlineName}}</h3>
+                                                                    <span class="small text-gray">{{Price}}</span>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </a>
                                             </div>
-                                        </a>
+                                            <div class="swipeout-actions-right">
+                                                <a class="swipeout-nodelete text-white bg-darkblue first-swipeout text-center" href="#"><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
+                                                <a class="bg-green text-white text-center small second-swipeout" href="#">ADD TO<br />QUOTE</a>
+                                            </div>
+                                        </li>
                                     {{/each}}
+                                    </ul>
                                 </div>
                             </div>
                         {{/if}}
@@ -303,7 +313,6 @@
                         </div>
                     </div>
                 </script>
-                
         </div>
       </div>
     </div>
