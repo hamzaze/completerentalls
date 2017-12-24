@@ -55,9 +55,27 @@
                         {{#if results}}
                             {{#if results.catmenu}}
                                 <div id="wrapCatMenuAll" class="wrapCatMenuAll">
+                                    <div class="padd20 text-white">
+                                    Browse our growing inventory of over {{results.countpartyitems}} party rental items!
+                                    </div>
                                     <ul class="relative" data-target="catmenu">
                                         {{#each results.catmenu}}
-                                            <li class="relative"><a href="" class="relative">{{SubCategory}}</a></li>
+                                            <li class="relative">
+                                            {{#if submenu}}
+                                                <a href="#" data-action="togglesubmenu" class="relative akalink"><div class="abs right0"><div class="paddLeftRight20">
+                                                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                </div></div>{{SubCategory}}</a>
+                                                    <ul class="relative submenu">
+                                                        {{#each submenu}}
+                                                            <li class="relative"><a href="products.html" data-id="{{SubCategoryID}}" class="relative actaslink" data-context='{{stringify this}}'>{{SubCategory}}</a></li>
+                                                        {{/each}}
+                                                    </ul>
+                                            {{else}}
+                                                <a href="products.html" class="relative actaslink" data-id="{{SubCategoryID}}" data-context='{{stringify this}}'>{{SubCategory}}</a>
+                                            {{/if}}
+                                            
+                                                
+                                                </li>
                                         {{/each}}
                                     </ul>
                                 </div>
@@ -68,7 +86,14 @@
                         <div class="overlayBlue">
                             <!-- Begin Wrap Top -->
                             <div id="topHeader" class="topHeader abs heightExactly44 bg-white">
-                                <div class="wrapSearchIndicator abs text-gray"><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></div>
+                                <div class="wrapSearchIndicator abs text-gray">
+                                <div class="inline-block">
+                                    <a href=""><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="inline-block">
+                                    <a href=""><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></a>
+                                </div>
+                                </div>
                                 <div class="wrapMenuIndicator abs">
                                     <a class="relative" href="#" data-action="togglecatmenu">
                                         <span class="relative"></span>
@@ -93,84 +118,84 @@
                                     <div class="row">
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/CR_tent_icon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="tents" data-context='{"SubCategory":"Tents", "category":"tents"}' style="background-image: url('images/CR_tent_icon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Tents</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/ChairsIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="chairs" data-context='{"SubCategory":"Chairs", "category":"chairs"}' style="background-image: url('images/ChairsIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Chairs</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/LinensIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="linens" data-context='{"SubCategory":"Linens", "category":"linens"}' style="background-image: url('images/LinensIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Linens</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/CutleryIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="cutlery" data-context='{"SubCategory":"Cutlery", "category":"cutlery"}' style="background-image: url('images/CutleryIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Cutlery</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/DinnerwearIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="dinnerware" data-context='{"SubCategory":"Dinnerwear", "category":"dinnerware"}' style="background-image: url('images/DinnerwearIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Dinnerwear</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/StemwearIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="stemware" data-context='{"SubCategory":"Stemwear", "category":"stemware"}' style="background-image: url('images/StemwearIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Stemwear</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/GlasswearIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="glassware" data-context='{"SubCategory":"Glasswear", "category":"glassware"}' style="background-image: url('images/GlasswearIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Glasswear</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/TablesIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="tables" data-context='{"SubCategory":"Tables", "category":"tables"}' style="background-image: url('images/TablesIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Tables</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/GamesIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="games" data-context='{"SubCategory":"Games", "category":"games"}' style="background-image: url('images/GamesIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Games</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/FurnitureIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="furniture" data-context='{"SubCategory":"Furniture", "category":"furniture"}' style="background-image: url('images/FurnitureIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Furniture</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/CookingIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="cooking" data-context='{"SubCategory":"Cooking", "category":"cooking"}' style="background-image: url('images/CookingIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Cooking</div>
                                                 </a>
                                             </item>
                                         </div>
                                         <div class="col-33">
                                             <item class="text-center">
-                                                <a class="abs fullwidth fullheight" href="" style="background-image: url('images/ToolsIcon.png');">
+                                                <a class="abs fullwidth fullheight" href="products.html" data-category="tools" data-context='{"SubCategory":"Tools", "category":"tools"}' style="background-image: url('images/ToolsIcon.png');">
                                                     <div class="h3 abs bottom0 padd10 text-center fullwidth">Tools</div>
                                                 </a>
                                             </item>
@@ -181,7 +206,23 @@
                                 <!-- Begin Wrap Bottom Map -->
                                 <div id="wrapBottomMap" class="wrapBottomMap bg-bluegray padd20">
                                     <div class="flexbox">
-                                        <div class="icon"><img src="images/CRMapIcon.png" alt="" /></div>
+                                        <div class="icon">
+                                        {{#if results}}
+                                            {{#if results.store}}
+                                                {{#if results.store.gmap}}
+                                                    <a target="_blank" href="{{results.store.gmap}}" class="external">
+                                                {{/if}}
+                                            {{/if}}    
+                                        {{/if}}
+                                                        <img src="images/CRMapIcon.png" alt="" />
+                                        {{#if results}}
+                                            {{#if results.store}}
+                                                {{#if results.store.gmap}}            
+                                                    </a>
+                                                {{/if}}
+                                            {{/if}}    
+                                        {{/if}}
+                                        </div>
                                         <div class="flex1">
                                         <div class="text-bluegray-dark small lineheight120">
             <strong>Visit our showroom or<br />
@@ -228,6 +269,31 @@
                             <!-- End Wrap Middle Content -->
                         </div>
                     </div>
+                </script>
+                            
+                <script id="listProductsTemplate" type="text/template7">
+                    
+                        {{#if results}}
+                            <div class="row">
+                                <div class="col-100">
+                                    {{#each results}}
+                                        <a class="loadContext" href="singleproduct.html" data-id="{{ProductID}}">
+                                            <div class="item">
+                                                <div class="flexbox">
+                                                    <div class="image-holder"><div class="bg-image-outer"></div></div>
+                                                    <div class="flex1">
+                                                        <div class="lineheight100">
+                                                            <h3 class="lineheight100">{{OnlineName}}</h3>
+                                                            <span class="small text-gray">{{Price}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        {{/if}}
                 </script>
                 
                 <script id="welcomeTemplate" type="text/template7">

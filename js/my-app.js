@@ -49,6 +49,9 @@ var ajaxLoader="<div class='ajaxLoader left50 top50 abs'><div class='fineloader'
 var ajaxLoaderWithBackground="<div class='overlayWhite'>" + ajaxLoader + "</div>";
 var isCordovaApp = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
 
+var reloadProductsEvery=3000;
+var productsLoadInterval;
+
 if(!checkCookie("hhCompleteRentalsLoadedApp")){
     
     mainView.router.load({
@@ -163,10 +166,39 @@ function displayInfo(a, b){
     });
 }
 
+$$(document).on("click", "#wrapCatMenuAll a.actaslink", function(e){
+    window.setTimeout(function(){
+        $$("div.page[data-page='index']").removeClass("catmenuactivated");
+    }, 400);
+    
+});
+
 $$(document).on("click", "a[data-action='togglecatmenu']", function(e){
     e.preventDefault();
     var $this=$$(this);
     $$("div.page.page-on-center").toggleClass("catmenuactivated");
+});
+
+$$(document).on("click", "a[data-action='togglesubmenu']", function(e){
+    e.preventDefault();
+    var $this=$$(this);
+    console.log("clicked on " + $this);
+    $this.closest("li.relative").toggleClass("activated");
+});
+
+// In page callbacks:
+myApp.onPageInit('products', function (page) {
+    var category=0;
+    var id=0;
+    if(page.context.category){
+        id=0;
+        category=page.context.category;
+    }else if(page.context.SubCategoryID){
+        id=page.context.SubCategoryID;
+        category=0;
+    }
+    autoLoadCurrentProducts(id, true, category);
+    
 });
 
 function callAjaxOnFly(postData){
@@ -200,6 +232,79 @@ function callAjaxOnFly(postData){
     });
 }
 
+function autoLoadCurrentProducts(id, isAjaxLoader, category){
+    if(isAjaxLoaded) return false;
+    isAjaxLoaded=true;
+    if(isAjaxLoader){
+        displayActionLoader();
+    }
+    var postData={id: id, category: category, context: "loadCurrentProducts"};
+    
+    $$.ajax({
+       type: "POST",
+       url: pathToAjaxDispatcher,
+       data: postData,
+       dataType: "json",
+       success: function(data){
+           isAjaxLoaded=false;
+           if(isAjaxLoader){
+                removeActionLoader();
+            }
+            if(data["success"]==1){
+                localStorage.setItem('listProductsTemplate', JSON.stringify(data));
+                var data=JSON.parse(localStorage.getItem('listProductsTemplate'));
+                var currentPage=mainView.activePage.name;
+                
+                var listProductsTemplate=$$("script#listProductsTemplate").html();
+                var compiledTemplate = Template7.compile(listProductsTemplate);
+                var html=compiledTemplate(data);
+                $$("#wrapAllProducts").html(html);
+                
+                loadProductPhotos(id, category);
+            }
+            return false;
+       }, error: function(){
+           if(isAjaxLoader){
+                removeActionLoader();
+            }
+           isAjaxLoaded=false;
+       }
+    });
+}
+
+function loadProductPhotos(id, category){
+    if(isAjaxLoaded) return false;
+    isAjaxLoaded=true;
+    var postData={id: id, category: category, context: "loadProductPhotos"};
+    
+    
+    $$.ajax({
+       type: "POST",
+       url: pathToAjaxDispatcher,
+       data: postData,
+       dataType: "json",
+       success: function(data){
+           isAjaxLoaded=false;
+               if(data["success"]==1){
+                   var reImage=/"image":"(.+|\s?)"/;
+                   if(data["results"]){
+                        $$.each(data["results"], function (index, value) {
+                            var newImage="<div class='bg-image' style='background-image: url(" + value +");' />";
+                            
+                            $$("#wrapAllProducts a.loadContext[data-id='"+index+"'] div.image-holder > div.bg-image-outer").html(newImage);
+                            $$("#wrapAllProducts a.loadContext[data-id='"+index+"'] div.image-holder").addClass("completed");
+                        });
+                    }
+               }else{
+                   displayAlert(data["message"], $$("body"));
+               }
+            return false;
+       }, error: function(){
+           isAjaxLoaded=false;
+       }
+    });
+}
+
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
@@ -223,4 +328,18 @@ function checkCookie(cname) {
     } else {
         return false;
     }
+}
+
+function displayActionLoader(){
+    //Display some site effects to indicate user has clicked on something and just waiting for a response
+    if($$("body > div.overlayWhite").length<1){
+        $$("body").prepend(ajaxLoaderWithBackground);
+    }
+}
+
+function removeActionLoader(){
+    $$("body > div.overlayWhite").addClass("passive");
+    window.setTimeout(function(){
+        $$("body > div.overlayWhite").remove();
+    }, 800);
 }
