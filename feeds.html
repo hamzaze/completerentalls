@@ -1,4 +1,4 @@
-<div class="page" data-page="products">
+<div class="page" data-page="feeds">
     <div class="overlayBlue">
         <!-- Begin Wrap Top -->
         <div id="topHeader" class="topHeader abs heightExactly44 bg-white text-center">
@@ -12,14 +12,9 @@
                     </div>
                 </div>
             </nav>
-            <div class="wrapShortQuote abs top50">
-                    <div class="inline-block" data-target="shortquote"></div>
-                </div>
-            
             <div class="wrapSearchIndicator abs text-gray">
                 <div class="inline-block">
-                    <a class="wrapAddToFav logged-in-hidden" href="#" data-action="triggertologin" data-context="wrapDisplayFavorites"><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
-                    <a class="wrapAddToFav logged-out-hidden" href="favorites.html" data-href="favorites.html"><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
+                    <a class="wrapAddToFav" href="favorites.html" data-href="favorites.html"><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
                 </div>
                 <div class="inline-block">
                     <a href="#" data-target="#menu" data-action="togglemenu"><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></a>
@@ -30,13 +25,16 @@
                     <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
                 </a>
             </div>
-            <div class="padd15 text-gray text-uppercase forcedZIndexMinus"><strong>{{SubCategory}}</strong></div>
         </div>
         <!-- End Wrap Top -->
         <!-- Begin Wrap Middle Content -->
         <div class="page-content">
             
-            <div id="wrapAllProducts" class="wrapAllProducts list-block" data-id="{{SubCategoryID}}"></div>
+            <div id="wrapAllFeeds" class="wrapSingleProduct list-block">
+                <div class="padd20" data-target="wrapallfeeds">
+                    
+                </div>
+            </div>
         </div>
         <!-- End Wrap Middle Content -->
     </div>

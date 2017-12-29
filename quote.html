@@ -1,0 +1,137 @@
+<div class="page" data-page="quote">
+    <div class="overlayBlue">
+        <!-- Begin Wrap Top -->
+        <div id="topHeader" class="topHeader abs heightExactly44 bg-white text-center">
+            <nav id="menu" class="navbar animated bg-white">
+                <div class="padd0">
+                    <div class="wrapSearch wrapForm flexbox">
+                        <div class="flex1">
+                            <input type="text" class="mf-input" name="aEOE_search" placeholder="Search our Inventory..." />
+                        </div>
+                        <a href="search.html" data-target="searchbtn" class="btn btn-transparent text-green"><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </nav>
+            <div class="wrapShortQuote abs top50 left50">
+                <div class="inline-block" data-target="shortquote"></div>
+            </div>
+            <div class="wrapSearchIndicator abs text-gray">
+                <div class="inline-block">
+                    <a class="wrapAddToFav logged-in-hidden" href="#" data-action="triggertologin" data-context="wrapDisplayFavorites"><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
+                    <a class="wrapAddToFav logged-out-hidden" href="favorites.html" data-href="favorites.html"><i class="fa fa-heart fa-1-5x" aria-hidden="true"></i></a>
+                </div>
+                <div class="inline-block">
+                    <a href=""><i class="fa fa-search fa-1-5x" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="wrapMenuIndicator1 abs">
+                <a class="relative back" href="#">
+                    <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+        <!-- End Wrap Top -->
+        <!-- Begin Wrap Middle Content -->
+        <div class="page-content">
+            <form action="#" method="post" id="frmSendCustomQuote" data-action="handlewithform">
+            <div id="wrapSingleProduct" class="wrapSingleProduct">
+                <div class="padd20">
+                    <h1 class="lineheight120 relative">Your Party Rental Quote</h1>
+                    <div class="bodytext text-gray lineheight120 text-middle">
+                        Please fill out and submit the following form. Our team will put together a custom quote and send it back to you in a timely manner.
+                    </div>
+                    <div class="paddTopBottom10 text-danger text-middle">
+                        *Swipe left to remove items
+                    </div>
+                </div>
+                
+                <div id="wrapAllQuotes" class="wrapAllProducts list-block">
+                    
+                </div>
+                <div class="padd20 wrapForm text-center">
+                    <div class="padd5"></div>
+                    
+                        <div class="hidden">
+                            <input type="hidden" name="context" value="sendCustomQuote" />
+                        </div>
+                        <div class="fRow"><input type="text" class="mf-input" required="required" name="aEOE_name" placeholder="Full Name" /></div>
+                        <div class="fRow"><input type="email" class="mf-input" required="required" name="aEOE_email" placeholder="Email" /></div>
+                        <div class="fRow"><input type="text" class="mf-input" required="required" name="aEOE_phonenumber" placeholder="Phone Number" /></div>
+                        <div class="fRow"><input type="text" class="mf-input" required="required" name="aEOE_address1" placeholder="Street Address" /></div>
+                        <div class="fRow">
+                            <div class="row">
+                                <div class="col-50"><input type="text" class="mf-input" required="required" name="aEOE_city1" placeholder="City" /></div>
+                                <div class="col-50"><input type="text" class="mf-input" required="required" name="aEOE_postalcode1" placeholder="Postal Code" /></div>
+                            </div>
+                        </div>
+                        <div class="fRow">
+                            <div class="row">
+                                <div class="col-45"><div class="checkbox checkbox-primary text-uppercase"><input type="radio" class="mf-radio" required="required" value="1" name="aEOE_dtype" data-action="togglerelated" /><label for="">Pickup</label></div></div>
+                                <div class="col-10 text-center text-muted paddTopBottom5">or</div>
+                                <div class="col-45"><div class="checkbox checkbox-primary text-uppercase"><input type="radio" class="mf-radio" required="required" value="2" name="aEOE_dtype" data-action="togglerelated" /><label for="">Delivery</label></div></div>
+                            </div>
+                        </div>
+                        <div class="hidden" data-rel="aEOE_dtype" data-value="1">
+                            <div class="fRow"><input type="text" class="mf-input mf-datepicker" id="aEOE_pdate" name="aEOE_pdate" placeholder="Pickup Date" /></div>
+                            <div class="fRow">
+                                <div class="padd15 text-center text-white bg-green">
+                                    <div class="h5">Our pickup location is:</div>
+                                    {{StoreAddress}}<br />{{StoreCity}}, {{StoreProv}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden" data-rel="aEOE_dtype" data-value="2">
+                            <div class="fRow"><input type="text" class="mf-input" name="aEOE_address" placeholder="Delivery Address" /></div>
+                            <div class="fRow">
+                                <div class="row">
+                                    <div class="col-50"><input type="text" class="mf-input" name="aEOE_city" placeholder="City" /></div>
+                                    <div class="col-50"><input type="text" class="mf-input" name="aEOE_postalcode" placeholder="Postal Code" /></div>
+                                </div>
+                            </div>
+                            <div class="fRow"><input type="text" class="mf-input mf-datepicker" id="aEOE_ddate" name="aEOE_ddate" placeholder="Delivery Date" /></div>
+                        </div>
+                        <div class="fRow">
+                            <textarea name="aEOE_comment" class="mf-textarea" placeholder="Questions/comments"></textarea>
+                        </div>
+                        <div class="fRow text-middle text-muted paddTopBottom10"><label for="" class="relative">Have you rented from<br />
+Complete Rent-alls before?</label>
+                            <div class="row">
+                                <div class="col-30"></div>
+                                <div class="col-20"><div class="checkbox checkbox-primary text-uppercase btn-sm"><input type="radio" class="mf-radio" required="required" value="1" name="aEOE_isrented" /><label for="">Yes</label></div></div>
+                                <div class="col-20"><div class="checkbox checkbox-primary text-uppercase btn-sm"><input type="radio" class="mf-radio" required="required" value="2" name="aEOE_isrented" /><label for="">No</label></div></div>
+                                <div class="col-30"></div>
+                            </div>
+                        </div>
+                        <div class="fRow text-middle text-muted">
+                            <label for="" class="relative">How did you hear about<br />
+Complete Rent-alls?</label>
+                            <div class="row">
+                                <div class="col-20"></div>
+                                <div class="col-60">
+                                    <select name="aEOE_howhearabout" required="required" class="mf-select">
+                                        {{#if options}}
+                                            {{#each options}}
+                                                <option value="{{@index}}">{{this}}</option>
+                                            {{/each}}
+                                        {{/if}}
+                                    </select>
+                                </div>
+                                <div class="col-20"></div>
+                            </div>
+                        </div>
+                        <div class="fRow"><button class="btn btn-green radius-20 btn-sm">REQUEST QUOTE</button></div>
+                    
+                    <div class="text-danger small text-center paddTopBottom10 lineheight100">
+                        <div class="small">This is not a formal quote. Once the above form has been<br />
+    submitted. One of our representatives will create and send you<br />
+    a detailed formal quote for the rental items mentioned above<br />
+    to the e-mail address which you provided above.</div>
+                    </div>
+                </div>
+                
+            </div>
+                </form>
+        </div>
+        <!-- End Wrap Middle Content -->
+    </div>
+</div>

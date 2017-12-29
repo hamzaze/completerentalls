@@ -2,7 +2,10 @@
     <div class="overlayBlue">
         <!-- Begin Wrap Top -->
         <div id="topHeader" class="topHeader abs heightExactly44 bg-white text-center">
-            <div class="wrapSearchIndicator abs text-gray"></div>
+            <div class="wrapShortQuote abs top50 left50">
+                <div class="inline-block" data-target="shortquote"></div>
+            </div>
+            <div class="wrapSearchIndicator abs text-gray"><div class="wrapPhotoMenu" data-target="photomenu"></div></div>
             <div class="wrapMenuIndicator1 abs">
                 <a class="relative back" href="#">
                     <i class="fa fa-angle-left fa-2x" aria-hidden="true"></i>
@@ -14,7 +17,48 @@
         <div class="page-content">
             
             <div id="wrapSingleProduct" class="wrapSingleProduct">
-                
+                <div id="wrapProductPhoto" class="wrapProductPhoto">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper" data-target="productphotos">
+                            
+                        </div>
+                    </div>
+                    <div class="ajaxLoader abs top50 left50">
+                        <div class="fineloader"></div>
+                    </div>
+                </div>
+                <div id="wrapProductDetails" class="wrapProductDetails bg-white padd20">
+                    <div class="abs right0 top0"><div class="padd15">
+                        {{#if isfavorite}}
+                        <a class="relative forcedZIndex20 wrapAddToFav text-danger" data-action="addedititem" data-id="{{ProductID}}" data-context="removeProductFromFavorites" href="#">
+                            <i class="fa fa-heart fa-1-2x" aria-hidden="true"></i>
+                        </a>
+                        {{else}}
+                        <a class="relative forcedZIndex20 wrapAddToFav" data-action="addedititem" data-id="{{ProductID}}" data-context="addProductToFavorites" href="#">
+                            <i class="fa fa-heart-o fa-1-2x" aria-hidden="true"></i>
+                        </a>
+                        {{/if}}
+                    </div></div>
+                    <h1 class="lineheight120 paddRight20 relative">{{OnlineName}}</h1>
+                    <div class="wrapProductPrice paddTopBottom10">{{Price}}</div>
+                    <div class="bodytext small lineheight120">{{Description}}</div>
+                    <div class="padd20 text-center">
+                        <button href="#" data-action="addedititem" data-id="{{ProductID}}" data-context="addToCustomQuote" class="btn btn-green radius-20"><i class="fa fa-shopping-cart fa-1-2x" aria-hidden="true"></i>&nbsp;&nbsp;ADD TO QUOTE</button>
+                    </div>
+                    <hr />
+                    <div class="wrapSocialLinks text-center">
+                        <div class="padd10"></div>
+                        <ul class="relative inline-block">
+                            <li class="relative inline-block"><a href="{{linkFacebook}}" class="relative external circle facebookIcon text-white" target="_blank"><div class="abs top50 fullwidth">
+                                <i class="fa fa-facebook fa-1-2x" aria-hidden="true"></i>
+                            </div></a></li><li class="relative inline-block"><a href="{{linkTwitter}}" class="relative external circle twitterIcon text-white" target="_blank"><div class="abs top50 fullwidth">
+                                <i class="fa fa-twitter fa-1-2x" aria-hidden="true"></i>
+                            </div></a></li><li class="relative inline-block"><a href="#" class="relative external circle pinterestIcon text-white"><div class="abs top50 fullwidth">
+                                <i class="fa fa-pinterest-p fa-2x" aria-hidden="true"></i>
+                            </div></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- End Wrap Middle Content -->
